@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 492}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 442}
   m_MaxSize: {x: 12004, y: 8042}
   vertical: 0
-  controlID: 156
+  controlID: 108
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 442}
   m_MaxSize: {x: 8003, y: 8042}
   vertical: 1
-  controlID: 114
+  controlID: 109
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -185,8 +185,8 @@ MonoBehaviour:
     y: 0
     width: 950
     height: 620
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -212,8 +212,8 @@ MonoBehaviour:
     y: 0
     width: 564
     height: 620
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_MinSize: {x: 303, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 115
+  controlID: 110
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -318,8 +318,8 @@ MonoBehaviour:
     y: 0
     width: 406
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 23}
@@ -416,9 +416,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -21.949192, y: 14.288025, z: 10.066561}
+    m_Target: {x: -15.373515, y: 1.8891325, z: 19.680586}
     speed: 2
-    m_Value: {x: -21.949192, y: 14.288025, z: 10.066561}
+    m_Value: {x: -15.373515, y: 1.8891325, z: 19.680586}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -464,9 +464,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.42278677, y: 0.12861206, z: -0.060899667, w: -0.8950622}
+    m_Target: {x: -0.37324786, y: 0.08768833, z: -0.035605766, w: -0.9229649}
     speed: 2
-    m_Value: {x: -0.4227583, y: 0.1286034, z: -0.060895566, w: -0.89500195}
+    m_Value: {x: -0.37322265, y: 0.0876824, z: -0.03560336, w: -0.92290246}
   m_Size:
     m_Target: 25.206835
     speed: 2
@@ -529,7 +529,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1080, y: 1920}
+  m_TargetSize: {x: 325, y: 578}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -538,16 +538,16 @@ MonoBehaviour:
   m_VSyncEnabled: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 07000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 0700000000000000000000000d000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -540
-    m_HBaseRangeMax: 540
-    m_VBaseRangeMin: -960
-    m_VBaseRangeMax: 960
+    m_HBaseRangeMin: -162.5
+    m_HBaseRangeMax: 162.5
+    m_VBaseRangeMin: -289
+    m_VBaseRangeMax: 289
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -567,7 +567,7 @@ MonoBehaviour:
       y: 21
       width: 562
       height: 578
-    m_Scale: {x: 0.30104166, y: 0.30104166}
+    m_Scale: {x: 1, y: 1}
     m_Translation: {x: 281, y: 289}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -575,12 +575,12 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -933.4256
-      y: -960
-      width: 1866.8512
-      height: 1920
+      x: -281
+      y: -289
+      width: 562
+      height: 578
     m_MinimalGUI: 1
-  m_defaultScale: 0.30104166
+  m_defaultScale: 1
   m_LastWindowPixelSize: {x: 562, y: 599}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -618,7 +618,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6afbffffa6340000e0340000e8340000
+      m_ExpandedIDs: 6afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 13334
+  m_LastSelectedObjectID: 41898
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -774,20 +774,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\Mertcan\Downloads\snowBall
+  m_LastProjectPath: C:\Users\Mertcan\Documents\GitHub\Snow-Ball-HC\snowBall
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3a360000
-    m_LastClickedID: 13882
-    m_ExpandedIDs: 000000003a36000000ca9a3b
+    m_SelectedIDs: 5c380000
+    m_LastClickedID: 14428
+    m_ExpandedIDs: 0000000044360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -815,7 +815,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 80450000
     m_LastClickedID: 17792
-    m_ExpandedIDs: 000000003a360000
+    m_ExpandedIDs: 0000000044360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -840,8 +840,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c8340000
-    m_LastClickedInstanceID: 13512
+    m_SelectedInstanceIDs: 0e350000
+    m_LastClickedInstanceID: 13582
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c64b0000ea290000aa6d00003a330000482e0000922c0000023e000028a00000d43300001a3e000026510000b239000016480000323a0000ca4b00002e410000b0320000862e0000b4390000563b00009c7e0000462d0000623b0000caa301009a3a0000ea3f0200ec060200723a000002fffcff82c30200cc130100cc390000c85000003c3e0000b83300004ca802002e570000c43300004c3e0000485a0000926700005e3d00004046010030450100bc43010050450100543f00001863000018260200bc3e000032610000a6b900009e550000826e00004c600000204b00007097f9ff522a01006a320000c6610000366b0000d8560000fa49000042470000aed900001632000010370000a24e0000a4c60000f471000060d90000943200007a330000fe4c0000243c0000f450000092690000ea940000907c0000ec6500003c49000058720000aa430000ee5200003251000004510000ccd90000d63b000036410000b63700009e330000ea3300007c3500001e430000243a00004c390000de3a0000fc400000c644000040350000825f0000c62a0200a0760000406b000032720000c63f00006c3e000000000000
     m_RenameOverlay:

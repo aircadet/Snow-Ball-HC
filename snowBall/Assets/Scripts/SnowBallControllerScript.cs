@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnowBallControllerScript : MonoBehaviour
 {
@@ -8,35 +9,69 @@ public class SnowBallControllerScript : MonoBehaviour
     public GameObject snowBall;
     public Vector3 force;
 
-    public Transform zemin;
-
-    
+    public Transform zemin;    
 
     Vector3 fark;
 
+    Swipe swiper;
+
+    float swiperX;
+    Vector3 firstPos;
+    float swipeFark;
+
+    public float oran;
+
+    public GameObject plane;
+
     private void Start()
     {
-        /*hedef = new Vector3(snowBall.transform.position.x, snowBall.transform.position.y, snowBall.transform.position.z);*/
+        swiper = GameObject.Find("Swipe").GetComponent<Swipe>();
+        firstPos = snowBall.transform.position;
     }
 
     void Update()
     {
+        snowBall.GetComponent<Rigidbody>().AddForce(force, ForceMode.Acceleration);
+        snowBall.GetComponent<Rigidbody>().AddTorque(force, ForceMode.Acceleration);
+
+        if (swiper.isDragging)
+        {
+            swiperX = swiper.SwipeDelta.x;
+
+        }
+
+        if (swiperX <= 0)
+        {
+            swipeFark =  firstPos.x + swiperX;
+            snowBall.transform.position = new Vector3(((snowBall.transform.position.x + swipeFark) / oran), snowBall.transform.position.y, snowBall.transform.position.z);
+        }
+        else
+        {
+            swipeFark = firstPos.x - swiperX;
+            snowBall.transform.position = new Vector3(((snowBall.transform.position.x - swipeFark) / oran), snowBall.transform.position.y, snowBall.transform.position.z);
+        }
+
         
 
-        if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.UpArrow))
+        
+
+        if (snowBall.transform.position.x > plane.GetComponent<MeshRenderer>().bounds.max.x)
         {
-            snowBall.GetComponent<Rigidbody>().AddForce(force, ForceMode.Acceleration);
-            snowBall.GetComponent<Rigidbody>().AddTorque(force, ForceMode.Acceleration);
+            snowBall.transform.position = new Vector3(plane.GetComponent<MeshRenderer>().bounds.max.x-0.5f, snowBall.transform.position.y, snowBall.transform.position.z);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (snowBall.transform.position.x < plane.GetComponent<MeshRenderer>().bounds.min.x)
         {
-            snowBall.GetComponent<Rigidbody>().AddForce(new Vector3(0.5f, 0, 0), ForceMode.Impulse);
+            snowBall.transform.position = new Vector3(plane.GetComponent<MeshRenderer>().bounds.min.x+0.5f, snowBall.transform.position.y, snowBall.transform.position.z);
+
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+
+        if (snowBall.transform.position.y <= -5)        
         {
-            snowBall.GetComponent<Rigidbody>().AddForce(new Vector3(-0.5f, 0, 0), ForceMode.Impulse);
+            SceneManager.LoadScene(0);
         }
+
+     
 
     }
 

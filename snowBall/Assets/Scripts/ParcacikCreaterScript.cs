@@ -8,9 +8,11 @@ public class ParcacikCreaterScript : MonoBehaviour
     public int topSayisi;
     int sayi = 0;
 
+    Swipe swiper;
+
     GameObject obstacles;
 
-     level;
+     int level;
 
     void Start()
     {
