@@ -15,20 +15,25 @@ public class ObstacleManagerScript : MonoBehaviour
 
     GameObject obs;
 
-    int zRange;
+    int minZ = 15, maxZ = 15;
 
+    int topZ;
+
+    public Material obs1, obs2, obs3, sphere;
+
+   
     void Start()
     {
-        //LEVEL + 2 ADET ENGEL OLUŞTURMAYI SONRADAN EKLE//
+        topZ = (PlayerPrefs.GetInt("Level")+10)*10 ;
 
-        totalObstacle = PlayerPrefs.GetInt("Level") + 2;
-        zRange = (PlayerPrefs.GetInt("Level") + 10) * 9;
-
+        BuildObsNumber();
+        ObstacleColoring();
+       
         while (obstacle < totalObstacle)
         {
             float x = 0;
-            float y = 0.5f;
-            float z = Random.Range(15,zRange);
+            float y = .8f;
+            float z = Random.Range(minZ,maxZ);
 
             Vector3 pos = new Vector3(x, y, z);
             if (obstacle < 2)
@@ -45,14 +50,49 @@ public class ObstacleManagerScript : MonoBehaviour
                 obs.transform.parent = GameObject.Find("Obstacles").transform;
                 obstacle++;
             }
+
+            if (maxZ >= topZ)
+            {
+                maxZ = topZ;
+            }
+            else
+            {
+                
+                minZ += topZ / totalObstacle;
+                maxZ += topZ / totalObstacle;
+            }
+            
         }
 
 
         
     }
 
-    void Update()
+    void BuildObsNumber()
     {
-        
+        if (PlayerPrefs.GetInt("Level") <= 15)
+        {
+            totalObstacle = PlayerPrefs.GetInt("Level");
+        }
+        else if (PlayerPrefs.GetInt("Level") > 15 && PlayerPrefs.GetInt("Level") <= 30)
+        {
+            totalObstacle = PlayerPrefs.GetInt("Level") - 5;
+        }
+        else
+        {
+            totalObstacle = PlayerPrefs.GetInt("Level") - 15;
+        }
     }
+
+    void ObstacleColoring()
+    {
+        obs1.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+        obs2.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+        obs3.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+        sphere.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+
+    }
+
+
+
 }

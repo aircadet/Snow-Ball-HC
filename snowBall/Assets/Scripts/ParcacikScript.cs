@@ -12,8 +12,8 @@ public class ParcacikScript : MonoBehaviour
     {
         if (other.transform.tag == "snowBall")
         {
-            FindObjectOfType<ParcacikCreaterScript>().topSayisi++;
-            snowBall.transform.localScale += new Vector3(.2f, .2f, .2f);
+            FindObjectOfType<ParcacikCreaterScript>().topSayisi+=2;
+            snowBall.transform.localScale += new Vector3(.3f, .3f, .3f);
             Destroy(gameObject);
         }
     }

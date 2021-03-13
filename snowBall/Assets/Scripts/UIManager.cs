@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject winParticle;
+
     private int level;
 
     public Transform snowBall;
@@ -20,10 +22,21 @@ public class UIManager : MonoBehaviour
 
     public Text topSayisi;
 
+    public GameObject ttp;
+
+    public GameObject gameOver;
+    public GameObject ttpNext;
+
+    GameManagerScript gameManager;
+
     
     
     void Start()
     {
+        winParticle.SetActive(false);
+        ttp.SetActive(true);
+        gameOver.SetActive(false);
+        ttpNext.SetActive(false);
         
         level = PlayerPrefs.GetInt("Level", 1);
 
@@ -36,6 +49,28 @@ public class UIManager : MonoBehaviour
     {
         slider.value = ((snowBall.position.z) -8) / ((10 + level) * 10) ;
         topSayisi.text = FindObjectOfType<ParcacikCreaterScript>().topSayisi.ToString();
+
+        if (GameManagerScript.currentState == GameManagerScript.PlayerState.Preparing)
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                GameManagerScript.currentState = GameManagerScript.PlayerState.Playing;
+                ttp.SetActive(false);
+            }
+        }
+
+        if (GameManagerScript.currentState == GameManagerScript.PlayerState.Death)
+        {
+            gameOver.SetActive(true);
+        }
+
+        if (GameManagerScript.currentState == GameManagerScript.PlayerState.Finish)
+        {
+            winParticle.SetActive(true);
+            ttpNext.SetActive(false);
+        }
+
+
     }
 
 

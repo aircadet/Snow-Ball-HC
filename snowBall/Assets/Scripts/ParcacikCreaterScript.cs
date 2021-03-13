@@ -8,28 +8,34 @@ public class ParcacikCreaterScript : MonoBehaviour
     public int topSayisi;
     int sayi = 0;
 
-    Swipe swiper;
-
     GameObject obstacles;
 
-     int level;
+    int level;
+    float minZ = 15;
+    float maxZ = 30;
+
+    float sphereCount;
 
     void Start()
     {
-        level = (PlayerPrefs.GetInt("Level") + 10) * 9;
+        level = PlayerPrefs.GetInt("Level");
+        sphereCount = (level + 10) / 2;
 
-        while (sayi <= 10)
+        while (sayi <sphereCount)
         {
             float x = Random.Range(-4, 4);
-            float z = Random.Range(15, level);
-            Vector3 konum = new Vector3(x, 1, z);
+            float z = Random.Range(minZ, maxZ);
+            Vector3 pos = new Vector3(x, .37f, z);
             Quaternion rot = new Quaternion(0, 0, 0, 0);
 
-            obstacles = Instantiate(parcacik, konum, rot);
+            obstacles = Instantiate(parcacik, pos, rot);
 
             sayi++;
 
             obstacles.transform.parent = GameObject.Find("Parcaciklar").transform;
+
+            minZ += ((level + 10) * 10) / sphereCount;
+            maxZ += ((level + 10) * 10) / sphereCount;
 
         }
 

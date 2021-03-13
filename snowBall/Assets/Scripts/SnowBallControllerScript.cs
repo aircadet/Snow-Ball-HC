@@ -8,71 +8,75 @@ public class SnowBallControllerScript : MonoBehaviour
 
     public GameObject snowBall;
     public Vector3 force;
-
     public Transform zemin;    
-
-    Vector3 fark;
-
     Swipe swiper;
-
     float swiperX;
     Vector3 firstPos;
     float swipeFark;
-
     public float oran;
-
     public GameObject plane;
+
 
     private void Start()
     {
         swiper = GameObject.Find("Swipe").GetComponent<Swipe>();
-        firstPos = snowBall.transform.position;
+        
     }
 
     void Update()
     {
-        snowBall.GetComponent<Rigidbody>().AddForce(force, ForceMode.Acceleration);
-        snowBall.GetComponent<Rigidbody>().AddTorque(force, ForceMode.Acceleration);
-
-        if (swiper.isDragging)
+        if (GameManagerScript.currentState == GameManagerScript.PlayerState.Playing)
         {
-            swiperX = swiper.SwipeDelta.x;
+            snowBall.GetComponent<Rigidbody>().AddForce(force, ForceMode.Acceleration);
+
+
+            if (swiper.isDragging)
+            {
+                firstPos = snowBall.transform.position;
+                swiperX = swiper.SwipeDelta.x;
+
+                if (swiperX <= 0)
+                {
+
+                    swipeFark = 0 + swiperX;
+                    snowBall.transform.position = new Vector3(Mathf.Clamp(((firstPos.x + swipeFark) / oran), -4.10f, 4.10f), snowBall.transform.position.y, snowBall.transform.position.z);
+
+                    //firstPos -= (((firstPos.x - swipeFark) / oran) * new Vector3(1, 0, 0));
+
+                    //firstPos.x = Mathf.Clamp(firstPos.x, -4.10f, 4.10f);
+
+                    //snowBall.transform.position = firstPos;
+                }
+                else
+                {
+                    firstPos = snowBall.transform.position;
+                    swipeFark = 0 - swiperX;
+
+                    snowBall.transform.position = new Vector3(Mathf.Clamp(((firstPos.x - swipeFark) / oran), -4.10f, 4.10f), snowBall.transform.position.y, snowBall.transform.position.z);
+
+                    //firstPos += (((firstPos.x - swipeFark) / oran) * new Vector3(1, 0, 0));
+
+                    //firstPos.x = Mathf.Clamp(firstPos.x, -4.10f, 4.10f);
+
+                    //snowBall.transform.position = firstPos;
+
+                }
+
+            }
+            else
+            {
+                firstPos = snowBall.transform.position;
+
+            }
+
+            if (snowBall.transform.position.y <= -5)
+            {
+                SceneManager.LoadScene(0);
+            }
+
+
 
         }
-
-        if (swiperX <= 0)
-        {
-            swipeFark =  firstPos.x + swiperX;
-            snowBall.transform.position = new Vector3(((snowBall.transform.position.x + swipeFark) / oran), snowBall.transform.position.y, snowBall.transform.position.z);
-        }
-        else
-        {
-            swipeFark = firstPos.x - swiperX;
-            snowBall.transform.position = new Vector3(((snowBall.transform.position.x - swipeFark) / oran), snowBall.transform.position.y, snowBall.transform.position.z);
-        }
-
-        
-
-        
-
-        if (snowBall.transform.position.x > plane.GetComponent<MeshRenderer>().bounds.max.x)
-        {
-            snowBall.transform.position = new Vector3(plane.GetComponent<MeshRenderer>().bounds.max.x-0.5f, snowBall.transform.position.y, snowBall.transform.position.z);
-        }
-
-        if (snowBall.transform.position.x < plane.GetComponent<MeshRenderer>().bounds.min.x)
-        {
-            snowBall.transform.position = new Vector3(plane.GetComponent<MeshRenderer>().bounds.min.x+0.5f, snowBall.transform.position.y, snowBall.transform.position.z);
-
-        }
-
-        if (snowBall.transform.position.y <= -5)        
-        {
-            SceneManager.LoadScene(0);
-        }
-
-     
-
     }
 
    

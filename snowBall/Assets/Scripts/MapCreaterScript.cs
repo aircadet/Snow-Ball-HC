@@ -18,8 +18,6 @@ public class MapCreaterScript : MonoBehaviour
 
     private int level;
 
-    public bool isFinished = false;
-
     private void Start()
     {
         level = PlayerPrefs.GetInt("Level", 1);
@@ -35,17 +33,8 @@ public class MapCreaterScript : MonoBehaviour
             deneme.transform.parent = GameObject.Find("Zemin").transform;
         }
 
-        deneme = Instantiate(finish, pos, rot);
+        deneme = Instantiate(finish, pos += new Vector3(0,0,5), rot);
         deneme.transform.parent = GameObject.Find("Zemin").transform;
 
-    }
-
-    private void Update()
-    {
-        if (isFinished)       
-        {
-            PlayerPrefs.SetInt("Level", level + 1);
-            SceneManager.LoadScene(0);
-        }
     }
 }

@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - CameraContollerScript
     - FinishScript
+    - GameManagerScript
     - MapCreaterScript
     - ObstacleManagerScript
     - ObstacleScript
@@ -17,8 +18,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -73,7 +76,9 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11250}
+      Script: {instanceID: 11248}
+    - Class: 114
+      Script: {instanceID: 11298}
     - Class: 114
       Script: {instanceID: 11408}
     - Class: 114
@@ -107,7 +112,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13096}
     - Class: 114
-      Script: {instanceID: 14494}
+      Script: {instanceID: 18676}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -153,6 +158,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: 72218bc30b8626706db174a5392e0da3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Swipe
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -281,7 +292,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: a3266d177c4303ae87e2b8c8be0a5f7c
+      Hash: 977f1c18b96b78be37f2c58b682e6a46
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -293,7 +304,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: fc6d4d74fa5b5da8ac7dfbd1f65077a4
+      Hash: be12aef247c3dcb4ad7f8cb5e08d4e5d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ObstacleManagerScript
@@ -479,7 +490,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: d7e8117bd5398e0070501e0679cc79ea
+      Hash: 00329d593285a9b201b07cf1317438f0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SnowBallControllerScript
@@ -611,10 +622,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 72218bc30b8626706db174a5392e0da3
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Swipe
+    className: GameManagerScript
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
