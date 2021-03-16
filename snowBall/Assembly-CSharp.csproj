@@ -64,7 +64,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ClickOAOScript.cs" />
     <Compile Include="Assets\GameManagerScript.cs" />
+    <Compile Include="Assets\PlayerControllerScript.cs" />
     <Compile Include="Assets\Scripts\CameraContollerScript.cs" />
     <Compile Include="Assets\Scripts\FinishScript.cs" />
     <Compile Include="Assets\Scripts\MapCreaterScript.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Assets\Scripts\SnowBallControllerScript.cs" />
     <Compile Include="Assets\Scripts\Swipe.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
+    <Compile Include="Assets\SnowBallCollisionScript.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

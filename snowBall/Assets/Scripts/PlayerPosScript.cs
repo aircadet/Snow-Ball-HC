@@ -7,6 +7,7 @@ public class PlayerPosScript : MonoBehaviour
     public Transform snowBall;
     public Transform player;
 
+
     public bool isFinished = false;
 
     bool test = false;
@@ -16,25 +17,24 @@ public class PlayerPosScript : MonoBehaviour
     {
         if (!isFinished)
         {
-            player.position = new Vector3(snowBall.position.x, snowBall.GetComponent<MeshRenderer>().bounds.max.y, snowBall.position.z);
+            player.position = new Vector3(snowBall.position.x, snowBall.GetComponent<MeshRenderer>().bounds.max.y + 0.5f, snowBall.position.z);
         }
         else if (isFinished && !test)
         {
-            Vector3 toPos = new Vector3(snowBall.position.x, snowBall.GetComponent<MeshRenderer>().bounds.min.y, snowBall.position.z - 2);
-            player.position = Vector3.Lerp(player.position,toPos,1);
-            test = true;
+            player.GetComponent<Rigidbody>().AddForce(new Vector3(0, 7, -15), ForceMode.Impulse);
             Camera.main.transform.rotation = Quaternion.Euler(30, 0, 0);
+            snowBall.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 12), ForceMode.Impulse);
+
+            test = true;
 
         }
 
         if (test && !test2)
         {
-            StartCoroutine(Wait(1));
-            test = true;
+            StartCoroutine(Wait(.5f));
+            test2 = true;
             
         }
-
-
 
     }
 
@@ -42,8 +42,7 @@ public class PlayerPosScript : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         Time.timeScale = .5f;
-        player.GetComponent<Rigidbody>().AddForce(new Vector3(0,0,5));
+        
     }
 
-        
 }

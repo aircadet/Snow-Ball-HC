@@ -27,9 +27,8 @@ public class UIManager : MonoBehaviour
     public GameObject gameOver;
     public GameObject ttpNext;
 
-    GameManagerScript gameManager;
-
-    
+    public GameObject clickObj;
+    public Slider clickSlider;
     
     void Start()
     {
@@ -37,6 +36,7 @@ public class UIManager : MonoBehaviour
         ttp.SetActive(true);
         gameOver.SetActive(false);
         ttpNext.SetActive(false);
+        clickObj.SetActive(false);
         
         level = PlayerPrefs.GetInt("Level", 1);
 
@@ -63,11 +63,26 @@ public class UIManager : MonoBehaviour
         {
             gameOver.SetActive(true);
         }
-
+        
         if (GameManagerScript.currentState == GameManagerScript.PlayerState.Finish)
         {
+            clickObj.SetActive(false);
             winParticle.SetActive(true);
-            ttpNext.SetActive(false);
+            ttpNext.SetActive(true);
+        }
+
+        if (GameManagerScript.currentState == GameManagerScript.PlayerState.Shooting)
+        {
+            clickObj.SetActive(true);
+        }
+        else
+        {
+            clickObj.SetActive(false);
+        }
+
+        if (clickObj.active == true)
+        {
+            clickSlider.value = FindObjectOfType<ClickOAOScript>().sliderValue;
         }
 
 

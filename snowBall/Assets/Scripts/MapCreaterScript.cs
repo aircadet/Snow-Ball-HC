@@ -33,7 +33,7 @@ public class MapCreaterScript : MonoBehaviour
             deneme.transform.parent = GameObject.Find("Zemin").transform;
         }
 
-        deneme = Instantiate(finish, pos += new Vector3(0,0,5), rot);
+        deneme = Instantiate(finish, pos += new Vector3(0,0,20), rot);
         deneme.transform.parent = GameObject.Find("Zemin").transform;
 
     }

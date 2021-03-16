@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraContollerScript
+    - ClickOAOScript
     - FinishScript
     - GameManagerScript
     - MapCreaterScript
@@ -9,7 +10,9 @@ ScriptsOnlyBuild:
     - ObstacleScript
     - ParcacikCreaterScript
     - ParcacikScript
+    - PlayerControllerScript
     - PlayerPosScript
+    - SnowBallCollisionScript
     - SnowBallControllerScript
     - Swipe
     - UIManager
@@ -30,6 +33,7 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
@@ -84,35 +88,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11448}
     - Class: 114
-      Script: {instanceID: 11722}
+      Script: {instanceID: 11634}
     - Class: 114
-      Script: {instanceID: 11756}
+      Script: {instanceID: 11724}
     - Class: 114
-      Script: {instanceID: 11838}
+      Script: {instanceID: 11758}
     - Class: 114
-      Script: {instanceID: 11910}
+      Script: {instanceID: 11840}
     - Class: 114
-      Script: {instanceID: 11920}
+      Script: {instanceID: 11912}
     - Class: 114
-      Script: {instanceID: 11962}
+      Script: {instanceID: 11922}
     - Class: 114
-      Script: {instanceID: 11966}
+      Script: {instanceID: 11964}
     - Class: 114
-      Script: {instanceID: 12496}
+      Script: {instanceID: 11968}
     - Class: 114
-      Script: {instanceID: 12528}
+      Script: {instanceID: 12232}
     - Class: 114
-      Script: {instanceID: 12582}
+      Script: {instanceID: 12498}
     - Class: 114
-      Script: {instanceID: 12664}
+      Script: {instanceID: 12530}
     - Class: 114
-      Script: {instanceID: 12716}
+      Script: {instanceID: 12584}
     - Class: 114
-      Script: {instanceID: 13066}
+      Script: {instanceID: 12666}
     - Class: 114
-      Script: {instanceID: 13096}
+      Script: {instanceID: 12718}
     - Class: 114
-      Script: {instanceID: 18676}
+      Script: {instanceID: 12906}
+    - Class: 114
+      Script: {instanceID: 13070}
+    - Class: 114
+      Script: {instanceID: 13100}
+    - Class: 114
+      Script: {instanceID: 36304}
+    - Class: 114
+      Script: {instanceID: 45750}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -124,6 +136,10 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -274,6 +290,12 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameManagerScript
+  - hash:
+      serializedVersion: 2
       Hash: ef5c43f921427d03730f6ea4c848f07d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -292,7 +314,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 977f1c18b96b78be37f2c58b682e6a46
+      Hash: 6cda2f7ba05cdc31144952aace23cc13
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -346,13 +368,13 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 01a6be99b65827184380e3c32b3054aa
+      Hash: c134dff90a0e0625194f65a62414e36a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerPosScript
   - hash:
       serializedVersion: 2
-      Hash: 89a6fc3276e70271f213b846c58fb8f1
+      Hash: ea0aa19b43b74114b46f9c4504915fc2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MapCreaterScript
@@ -364,7 +386,7 @@ ScriptsOnlyBuild:
     className: CameraContollerScript
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 65b3a3b9a7779d539ec75a3ceddebdba
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FinishScript
@@ -490,7 +512,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 00329d593285a9b201b07cf1317438f0
+      Hash: 730db63b48c7e26bd1cbca4397a0debe
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SnowBallControllerScript
@@ -524,6 +546,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 1a17316f0a8a73444a3eaf40ce7f6263
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerControllerScript
   - hash:
       serializedVersion: 2
       Hash: 8cd1cbba27f3cb1717254f668e9e0d5a
@@ -622,10 +650,16 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
+      Hash: 566c18fa165e04499788a6f49416f26a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ClickOAOScript
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: GameManagerScript
+    className: SnowBallCollisionScript
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

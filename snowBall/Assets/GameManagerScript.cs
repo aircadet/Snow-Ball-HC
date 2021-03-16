@@ -11,6 +11,7 @@ public class GameManagerScript : MonoBehaviour
         Preparing,
         Playing,
         Death,
+        Shooting,
         Finish,
     }
     private void Start()

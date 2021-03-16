@@ -10,12 +10,17 @@ public class FinishScript : MonoBehaviour
     {
         if (collision.transform.tag == "snowBall")        
         {
-            GameManagerScript.currentState = GameManagerScript.PlayerState.Finish;
+            GameManagerScript.currentState = GameManagerScript.PlayerState.Shooting;
             FindObjectOfType<PlayerPosScript>().isFinished = true;
             FindObjectOfType<CameraContollerScript>().hedef = player;
 
         }
     }
 
-    
+    IEnumerator wait(float time)
+    {
+        yield return new WaitForSeconds(time);
+    }
+
+
 }

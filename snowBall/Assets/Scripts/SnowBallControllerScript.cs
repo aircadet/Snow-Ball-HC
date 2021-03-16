@@ -15,6 +15,7 @@ public class SnowBallControllerScript : MonoBehaviour
     float swipeFark;
     public float oran;
     public GameObject plane;
+    public GameObject player;
 
 
     private void Start()
@@ -40,12 +41,6 @@ public class SnowBallControllerScript : MonoBehaviour
 
                     swipeFark = 0 + swiperX;
                     snowBall.transform.position = new Vector3(Mathf.Clamp(((firstPos.x + swipeFark) / oran), -4.10f, 4.10f), snowBall.transform.position.y, snowBall.transform.position.z);
-
-                    //firstPos -= (((firstPos.x - swipeFark) / oran) * new Vector3(1, 0, 0));
-
-                    //firstPos.x = Mathf.Clamp(firstPos.x, -4.10f, 4.10f);
-
-                    //snowBall.transform.position = firstPos;
                 }
                 else
                 {
@@ -54,30 +49,20 @@ public class SnowBallControllerScript : MonoBehaviour
 
                     snowBall.transform.position = new Vector3(Mathf.Clamp(((firstPos.x - swipeFark) / oran), -4.10f, 4.10f), snowBall.transform.position.y, snowBall.transform.position.z);
 
-                    //firstPos += (((firstPos.x - swipeFark) / oran) * new Vector3(1, 0, 0));
-
-                    //firstPos.x = Mathf.Clamp(firstPos.x, -4.10f, 4.10f);
-
-                    //snowBall.transform.position = firstPos;
-
                 }
-
             }
             else
             {
                 firstPos = snowBall.transform.position;
-
             }
 
-            if (snowBall.transform.position.y <= -5)
+            if (snowBall.transform.position.y <= -5 || player.transform.position.y <= -5)
             {
                 SceneManager.LoadScene(0);
             }
 
-
-
         }
     }
 
-   
+    
 }
