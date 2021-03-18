@@ -12,18 +12,26 @@ public class PlayerPosScript : MonoBehaviour
 
     bool test = false;
     bool test2 = false;
-    
+    public bool isJumped = false;
+
+    public Vector3 playerJumpSpeed = new Vector3(0, 5, -25);
+    public Vector3 snowBallJumpSpeed = new Vector3(0, 0, 15);
+
+
     void Update()
     {
         if (!isFinished)
         {
-            player.position = new Vector3(snowBall.position.x, snowBall.GetComponent<MeshRenderer>().bounds.max.y + 0.5f, snowBall.position.z);
+            player.position = new Vector3(snowBall.position.x, snowBall.GetComponent<MeshRenderer>().bounds.max.y, snowBall.position.z);
         }
         else if (isFinished && !test)
         {
-            player.GetComponent<Rigidbody>().AddForce(new Vector3(0, 7, -15), ForceMode.Impulse);
+            player.GetComponent<Rigidbody>().AddForce(playerJumpSpeed, ForceMode.Impulse);
+            
             Camera.main.transform.rotation = Quaternion.Euler(30, 0, 0);
-            snowBall.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0, 12), ForceMode.Impulse);
+            snowBall.GetComponent<Rigidbody>().AddForce(snowBallJumpSpeed, ForceMode.Impulse);
+
+            isJumped = true;
 
             test = true;
 

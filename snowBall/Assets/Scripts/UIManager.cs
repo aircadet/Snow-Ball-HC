@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject clickObj;
     public Slider clickSlider;
+
+    public GameObject upgrades;
     
     void Start()
     {
@@ -52,13 +54,13 @@ public class UIManager : MonoBehaviour
 
         if (GameManagerScript.currentState == GameManagerScript.PlayerState.Preparing)
         {
-            if (Input.GetMouseButtonUp(0))
-            {
-                GameManagerScript.currentState = GameManagerScript.PlayerState.Playing;
-                ttp.SetActive(false);
-            }
+            upgrades.SetActive(true);
         }
-
+        else
+        {
+            upgrades.SetActive(false);
+        }
+        
         if (GameManagerScript.currentState == GameManagerScript.PlayerState.Death)
         {
             gameOver.SetActive(true);
@@ -85,6 +87,19 @@ public class UIManager : MonoBehaviour
             clickSlider.value = FindObjectOfType<ClickOAOScript>().sliderValue;
         }
 
+
+    }
+
+    public void tapToPlay()   
+    {
+        if (GameManagerScript.currentState == GameManagerScript.PlayerState.Preparing)
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                GameManagerScript.currentState = GameManagerScript.PlayerState.Playing;
+                ttp.SetActive(false);
+            }
+        }
 
     }
 

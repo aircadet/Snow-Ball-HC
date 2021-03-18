@@ -7,6 +7,7 @@ public class ObstacleManagerScript : MonoBehaviour
     public GameObject[] obstacles;
     public GameObject snowBall;
 
+
     int totalObstacle = 0;
     int obstacle;
 
@@ -19,7 +20,7 @@ public class ObstacleManagerScript : MonoBehaviour
 
     int topZ;
 
-    public Material obs1, obs2, obs3, sphere;
+    public Material obs1, obs2, obs3, sphere,wallMaterial;
 
    
     void Start()
@@ -63,8 +64,6 @@ public class ObstacleManagerScript : MonoBehaviour
             }
             
         }
-
-
         
     }
 
@@ -90,6 +89,8 @@ public class ObstacleManagerScript : MonoBehaviour
         obs2.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         obs3.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         sphere.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+
+        wallMaterial.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
 
     }
 

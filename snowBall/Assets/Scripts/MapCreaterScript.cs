@@ -7,7 +7,8 @@ public class MapCreaterScript : MonoBehaviour
 {
     public GameObject zemin;
     public GameObject finish;
-   
+    public GameObject wall;
+
     public int uzunluk;   
     private int uzunluk2 = 0;
 
@@ -35,6 +36,10 @@ public class MapCreaterScript : MonoBehaviour
 
         deneme = Instantiate(finish, pos += new Vector3(0,0,20), rot);
         deneme.transform.parent = GameObject.Find("Zemin").transform;
+
+        float finishPosZ = deneme.GetComponent<MeshRenderer>().bounds.max.z;
+
+        Instantiate(wall, new Vector3(-1, 0, finishPosZ-2), rot);
 
     }
 }

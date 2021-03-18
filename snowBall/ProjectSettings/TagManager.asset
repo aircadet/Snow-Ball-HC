@@ -6,6 +6,7 @@ TagManager:
   tags:
   - snowBall
   - Obstacle
+  - Plane
   layers:
   - Default
   - TransparentFX
