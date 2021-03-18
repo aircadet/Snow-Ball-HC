@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
 
     public Slider slider;
 
-    public Text topSayisi;
+    public Text topSayisi,goldTXT,kickUpgradeGoldTXT;
 
     public GameObject ttp;
 
@@ -51,6 +51,9 @@ public class UIManager : MonoBehaviour
     {
         slider.value = ((snowBall.position.z) -8) / ((10 + level) * 10) ;
         topSayisi.text = FindObjectOfType<ParcacikCreaterScript>().topSayisi.ToString();
+
+        goldTXT.text = PlayerPrefs.GetInt("Gold").ToString();
+        kickUpgradeGoldTXT.text = FindObjectOfType<GameManagerScript>().kickUpgradeGold.ToString();
 
         if (GameManagerScript.currentState == GameManagerScript.PlayerState.Preparing)
         {

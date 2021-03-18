@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerControllerScript : MonoBehaviour
 {
     public GameObject player;
-    public Vector3 hitSpeed = new Vector3(0, 3, 10);
+    public Vector3 hitSpeed = new Vector3(0, 3, 30);
 
     public bool isHit = false;
 
@@ -18,6 +18,8 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void Update()
     {
+        hitSpeed = new Vector3(0, 3, 30 + PlayerPrefs.GetInt("KickLevel")*5);
+
         if (GameManagerScript.currentState == GameManagerScript.PlayerState.Shooting && isGround)
         {         
                player.GetComponent<Rigidbody>().AddForce(speed,ForceMode.Acceleration);

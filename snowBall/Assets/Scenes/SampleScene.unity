@@ -514,6 +514,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3211ed530869c2341a22076824314dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gold: 0
+  kickLevel: 0
+  kickUpgradeGold: 0
 --- !u!4 &125657747
 Transform:
   m_ObjectHideFlags: 0
@@ -999,7 +1002,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 323785717}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 125657746}
+        m_MethodName: upgradeKick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &323785717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1952,6 +1966,8 @@ MonoBehaviour:
   nextLevelText: {fileID: 1379107745}
   slider: {fileID: 1058547736}
   topSayisi: {fileID: 599086451}
+  goldTXT: {fileID: 979117020}
+  kickUpgradeGoldTXT: {fileID: 1337008343}
   ttp: {fileID: 788840646}
   gameOver: {fileID: 1315185176}
   ttpNext: {fileID: 695279092}
@@ -2196,6 +2212,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hedef: {fileID: 1530218959}
   takipMesafe: {x: 0, y: -8.44, z: 11}
+--- !u!1 &979117017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 979117018}
+  - component: {fileID: 979117019}
+  - component: {fileID: 979117020}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &979117018
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979117017}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1783988498}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 292.99994, y: 592}
+  m_SizeDelta: {x: 400, y: 90}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &979117019
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979117017}
+  m_CullTransparentMesh: 0
+--- !u!114 &979117020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979117017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 76
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 76
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 10000
 --- !u!1 &1037595616
 GameObject:
   m_ObjectHideFlags: 0
@@ -4444,6 +4538,7 @@ RectTransform:
   - {fileID: 1733705974}
   - {fileID: 1702715655}
   - {fileID: 1058547735}
+  - {fileID: 979117018}
   m_Father: {fileID: 1125372580}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4930,7 +5025,7 @@ MonoBehaviour:
   player: {fileID: 471021180}
   isFinished: 0
   isJumped: 0
-  playerJumpSpeed: {x: 0, y: 10, z: -25}
+  playerJumpSpeed: {x: 0, y: 5, z: -15}
   snowBallJumpSpeed: {x: 0, y: 0, z: 15}
 --- !u!114 &2142707760
 MonoBehaviour:

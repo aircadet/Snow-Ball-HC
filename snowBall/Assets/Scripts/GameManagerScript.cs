@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     public static PlayerState currentState;
+    public int gold,kickLevel,kickUpgradeGold;
+
     public enum PlayerState
     {
         Preparing,
@@ -26,6 +28,12 @@ public class GameManagerScript : MonoBehaviour
 
     private void Update()
     {
+        gold = PlayerPrefs.GetInt("Gold", 1000);
+        kickLevel = PlayerPrefs.GetInt("KickLevel", 1);
+        kickUpgradeGold = kickLevel * 100;
+
+
+
         if (FindObjectOfType<ParcacikCreaterScript>().topSayisi <= -2)
         {
             Debug.Log("Finished");
@@ -42,6 +50,20 @@ public class GameManagerScript : MonoBehaviour
     public void nextLevel()
     {
         PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+
+        // GOLD ARTIRMA İŞLEMLERİ 
+        PlayerPrefs.SetInt("Gold", PlayerPrefs.GetInt("Gold") + 100);
         SceneManager.LoadScene(0);
+    }
+
+    public void upgradeKick()
+    {
+        if (gold >= kickUpgradeGold)
+        {
+            PlayerPrefs.SetInt("Gold", PlayerPrefs.GetInt("Gold") - kickUpgradeGold);
+            PlayerPrefs.SetInt("KickLevel", PlayerPrefs.GetInt("KickLevel") + 1);
+        }
+        
+
     }
 }
